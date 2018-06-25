@@ -10,7 +10,6 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     if (globalMorningMemoCondition) {
       var v21 = ProcessPeopleSchedule(request.source);
       var v22 = ProcessMorningMemo(v21);
-      // console.log(v22);
 
       PopupCenterDual('', 'a1', 600, 600, CreateMorningMemoModalStr(v22));
       globalMorningMemoCondition = false;

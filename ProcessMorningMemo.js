@@ -79,12 +79,16 @@ function createTodayAndWeekSchedule(peopleList) {
     var CEOsName = _peopleList.filter(function (element) {
         return /納富貞嘉|浜崎陽一郎/.test(element.name);
     });
-    // console.log(CEOsName);
-    // return;
-    CEOsName.forEach(function (item, index, array) {
-        CEOsName[index].daySchedules = item.getDaySchedules().filter(todayPplFilter(d));
 
+    CEOsName.forEach(function (item, index, array) {
         result += item.name + '\n';
+        if(isMonday){
+            result += mondayScheduleCreate(item.getDaySchedules());
+            result += '\n';
+            return;
+        }
+
+        CEOsName[index].daySchedules = item.getDaySchedules().filter(todayPplFilter(d));
         item.getDaySchedules().forEach(function (item1, index1, array1) {
             result += item1[1].split(' ')[1] + ' ' + item1[0] + '\n';
         });
@@ -98,21 +102,21 @@ function createTodayAndWeekSchedule(peopleList) {
 }
 
 // Sunday is 0, Monday is 1, and so on.
-function mondayScheduleCreate(CEOInstance){
+function mondayScheduleCreate(CEODaySchedules){
     var dayNames = ['日', '月', '火', '水', '木', '金', '土'];
     var result = '';
     var currentDay = 1;
-    result += CEOInstance.name + '\n';
-    CEOInstance.getDaySchedules().forEach(function (item1, index1, array1) {
+
+    result += '月\n';
+    CEODaySchedules.forEach(function (item1, index1, array1) {
         if(currentDay != (new Date(item1[1].split(' ')[0])).getDay()){
             currentDay = (new Date(item1[1].split(' ')[0])).getDay();
+            result +=  '\n' + dayNames[currentDay] + '\n';
         }
-
-        result += dayNames[currentDay] + '\n';
 
         result += item1[1].split(' ')[1] + ' ' + item1[0] + '\n';
     });
-
+    return result;
 }
 
 function deepCopy (arr) {
