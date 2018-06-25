@@ -1,0 +1,24 @@
+{
+	"name": "AIPO Support system release",
+	"description": "parsing AIPO, create morning meeting memo, create empty meeting room list",
+	"version": "3.6",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_icon": "thinkingface.png",
+		"default_popup": "index.html"
+		
+	},
+	"background":{
+		"scripts":[
+			"ProcessPeopleSchedule.js",
+			"ProcessRoomSchedule.js",
+			"SearchRooms.js",
+			"ProcessMorningMemo.js",
+			"index.js"
+		],
+		"persistent": false
+	},
+	"permissions": [
+		"tabs", "<all_urls>"
+	]
+}

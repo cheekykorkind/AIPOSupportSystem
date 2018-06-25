@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head class="h-100">
+	<meta charset="utf-8" />
+	<title>Aipo Support System</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<script src="./js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<script src='ProcessPeopleSchedule.js'></script>
+	<script src='ProcessRoomSchedule.js'></script>
+	<script src='SearchRooms.js'></script>
+	<script src='ProcessMorningMemo.js'></script>
+	<script src='./ModalHTMLString/CreateRoomModalStr.js'></script>
+	<script src='./ModalHTMLString/CreateMorningMemoModalStr.js'></script>
+	<script src='index.js'></script>
+</head>
+
+<body class="h-100">
+	<nav>
+		<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+			<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+			 aria-selected="true">朝ミーティングメモ取得</a>
+			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+			 aria-selected="false">空いている会議室検索</a>
+		</div>
+	</nav>
+	<div class="tab-content container h-100" id="nav-tabContent">
+
+		<div class="tab-pane fade show active row h-100" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+			<div class="row h-100 justify-content-center align-items-center">
+				<button type="button" id="morningMemo" class="btn btn-lg btn-block btn-outline-dark">朝ミーティングメモ取得</button>
+			</div>
+		</div>
+
+		<div class="tab-pane fade row" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">名前</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="pplname" placeholder="名前を空白(半角or全角)を入れて入力 Ex)納富 浜崎 ジホ">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-2 col-form-label">日付</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="todayStr" placeholder="Ex)2018-09-05">
+				</div>
+			</div>
+			<button type="button" id="roomList" class="btn btn-lg btn-block btn-outline-dark">空いている会議室を検索する</button>
+		</div>
+
+	</div>
+</body>
+
+</html>
